@@ -1,18 +1,23 @@
 {
   "files": {
     "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.099d9fbe.js",
+    "main.js": "/static/js/main.2c23f0ad.js",
     "static/js/787.ff6512e9.chunk.js": "/static/js/787.ff6512e9.chunk.js",
     "static/media/dubaiCar.mp4": "/static/media/dubaiCar.6d98a77dda65ba547ec5.mp4",
-    "static/media/dubai2.jpg": "/static/media/dubai2.31ec74f621c0a8d4609a.jpg",
+    "static/media/fly_car_logo.gif": "/static/media/fly_car_logo.73030d2fc1a8690776fe.gif",
+    "static/media/dailyCar.jpg": "/static/media/dailyCar.9486e3903e4df947c079.jpg",
+    "static/media/Rental.jpg": "/static/media/Rental.8cf1ce19f6a29fc7219d.jpg",
+    "static/media/playstore.png": "/static/media/playstore.1966d89b3185c2c36fc6.png",
+    "static/media/appstore.png": "/static/media/appstore.9939a3335678b440f9a0.png",
+    "static/media/TourCar.png": "/static/media/TourCar.a4479b7a9365c9ed8848.png",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.099d9fbe.js.map": "/static/js/main.099d9fbe.js.map",
+    "main.2c23f0ad.js.map": "/static/js/main.2c23f0ad.js.map",
     "787.ff6512e9.chunk.js.map": "/static/js/787.ff6512e9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.099d9fbe.js"
+    "static/js/main.2c23f0ad.js"
   ]
 }
