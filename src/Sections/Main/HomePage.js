@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import dubaiCar from "../../assets/images/dubaiCar.mp4";
+import HeroImg from "../../assets/images/rapido-hero.jpeg";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
 import {
@@ -25,13 +26,13 @@ import {
 } from "@mui/icons-material";
 import useResponsive from "../../hooks/useResponsive";
 
-const HighlightedText = styled(Typography)(({theme}) => ({
+const HighlightedText = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.light,
-}))
+}));
 
 const HomePage = () => {
-  const isMobile = useResponsive("between","sm","xs","sm"); 
-  const isTablet = useResponsive("between","sm","sm","md");
+  const isMobile = useResponsive("between", "sm", "xs", "sm");
+  const isTablet = useResponsive("between", "sm", "sm", "md");
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
   setTimeout(() => {
@@ -191,16 +192,13 @@ const HomePage = () => {
           <Typography variant="h2" py={7} sx={{ color: "#ffffff" }}>
             It’s time to change the <br />
             <HighlightedText variant="h1">ride experience</HighlightedText>
-            
           </Typography>
           <Box
             p={2}
             sx={{
-
-            
-              borderRadius:   isTablet || isMobile ? 1:70,
+              borderRadius: isTablet || isMobile ? 1 : 70,
               background: " #FFF",
-              width:  !isMobile && !isTablet?"72vw":"90vw",
+              width: !isMobile && !isTablet ? "72vw" : "90vw",
             }}
           >
             <Grid container spacing={4}>
@@ -282,14 +280,25 @@ const HomePage = () => {
       </Container>
       <Box
         sx={{
-          background: "rgba(000, 000, 000, 0.5)",
+          background: "rgba(000, 000, 000, 0.7)",
           width: "100%",
           height: "81vh",
           position: "absolute",
         }}
         style={{ zIndex: 0 }}
       ></Box>
-      <video
+      <img
+        alt={"Travel with rapido"}
+        src={HeroImg}
+        style={{
+          zIndex: -1,
+          position: "absolute",
+          objectFit: "cover",
+          height: "100%",
+          width: "100%",
+        }}
+      />
+      {/* <video
         style={{
           zIndex: -1,
           position: "absolute",
@@ -303,7 +312,7 @@ const HomePage = () => {
         playsInline
         muted
         controls={false}
-      />
+      /> */}
     </Box>
   );
 };
