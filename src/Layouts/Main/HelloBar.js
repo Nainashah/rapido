@@ -15,6 +15,7 @@ import {
   LinkedIn,
 } from "@mui/icons-material";
 import useResponsive from "../../hooks/useResponsive";
+import { Link } from "react-router-dom";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   background: theme.palette.grey[200],
@@ -58,24 +59,31 @@ const socialList = [
     href: "#",
   },
 ];
- 
+
 const HelloBar = () => {
-  const isMobile = useResponsive("between","sm","xs","sm");
+  const isMobile = useResponsive("between", "sm", "xs", "sm");
   return (
     <StyledBox>
       <Container>
         <Stack direction={"row"} justifyContent={"space-between"} py={1}>
-          {!isMobile && 
-          <Stack direction={"row"} spacing={3}>
-            {contactList.map((el, idx) => (
-              <Stack direction={"row"} alignItems={"center"} spacing={1}>
-                {el.icon}
-                <Typography variant={"caption"}>{el.content}</Typography>
-              </Stack>
-            ))}
-          </Stack>
-          }
-          <Stack direction={"row"} width={"100%"} spacing={2} justifyContent={isMobile?"center":"end"} >
+          {!isMobile && (
+            <Stack direction={"row"} spacing={3}>
+              {contactList.map((el, idx) => (
+                <a href={el.href}>
+                  <Stack direction={"row"} alignItems={"center"} spacing={1}>
+                    {el.icon}
+                    <Typography variant={"caption"}>{el.content}</Typography>
+                  </Stack>
+                </a>
+              ))}
+            </Stack>
+          )}
+          <Stack
+            direction={"row"}
+            width={"100%"}
+            spacing={2}
+            justifyContent={isMobile ? "center" : "end"}
+          >
             {socialList.map((el, idx) => el.icon)}
           </Stack>
         </Stack>

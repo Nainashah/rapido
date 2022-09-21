@@ -12,10 +12,12 @@ import { CancelRounded, MenuRounded, Person } from "@mui/icons-material";
 import { Container, Stack } from "@mui/system";
 import useResponsive from "../../hooks/useResponsive";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const menuList = [
   {
     title: "Your cars",
+    href:"/Your-car",
   },
   {
     title: "Tour Packages",
@@ -57,20 +59,21 @@ const Header = () => {
                 <MenuRounded />
               </IconButton>
             )}
-
+<Link to="/">
             <Logo variant={"h3"}>Rapido</Logo>
+            </Link>
             {isDesktop && (
               <Stack direction={"row"} spacing={2}>
                 {menuList.map((el, idx) => (
-                  <Button variant={"text"}>{el.title}</Button>
+                  <Button variant={"text"} >{el.title}</Button>
                 ))}
               </Stack>
             )}
           </Stack>
           <Stack direction="row" spacing={2}>
-            {isDesktop && <Button startIcon={<Person />}>Login</Button>}
+            {isDesktop && <Button startIcon={<Person />} href="/Login">Login</Button>}
 
-            <Button variant={"contained"}>Download App</Button>
+            <Button variant={"contained"} >Download App</Button>
           </Stack>
         </Stack>
       </Container>

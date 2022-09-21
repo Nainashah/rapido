@@ -21,10 +21,11 @@ import {
 } from "@mui/x-date-pickers";
 import {
   CalendarMonth,
-  LocationOnRounded,
+  GpsFixedRounded,
   NearMeRounded,
 } from "@mui/icons-material";
 import useResponsive from "../../hooks/useResponsive";
+import { Link } from "react-router-dom";
 
 const HighlightedText = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.light,
@@ -212,7 +213,7 @@ const HomePage = () => {
                     startAdornment: (
                       <InputAdornment position="start">
                         <IconButton>
-                          <LocationOnRounded />
+                          <GpsFixedRounded />
                         </IconButton>
                       </InputAdornment>
                     ),
@@ -265,14 +266,17 @@ const HomePage = () => {
                 </LocalizationProvider>
               </Grid>
               <Grid item xs={12} md={3}>
-                <Button
-                  sx={{ borderRadius: 10 }}
-                  py={3}
-                  fullWidth
-                  variant="contained"
-                >
-                  Book Now
-                </Button>
+                <Link  to="/Search-cabs">
+                  {" "}
+                  <Button
+                    sx={{ borderRadius: 10 }}
+                    py={3}
+                    fullWidth
+                    variant="contained"
+                  >
+                    Search Rides
+                  </Button>
+                </Link>
               </Grid>
             </Grid>
           </Box>
