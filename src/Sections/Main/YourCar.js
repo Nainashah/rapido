@@ -163,7 +163,7 @@ const YourCar = () => {
                         <LocalOfferRounded />
                         <Typography>{el.price}</Typography>
                       </Stack>
-                      <Link to="/Book-cabs">
+                      <Link to="/Search-cabs">
                       <Button variant="contained" fullWidth >Book Now</Button>
                       </Link>
                      

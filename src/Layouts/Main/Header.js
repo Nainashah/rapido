@@ -17,17 +17,22 @@ import { Link } from "react-router-dom";
 const menuList = [
   {
     title: "Your cars",
-    href:"/Your-car",
+    href: "/Your-car",
+  },
+
+  {
+    title: "About Us",
+    href: "/about-us",
   },
   {
     title: "Tour Packages",
+    href: "/Tour-package",
   },
   {
     title: "Help",
+    href: "/help-safety",
   },
-  {
-    title: "Safety",
-  },
+ 
 ];
 
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -59,21 +64,27 @@ const Header = () => {
                 <MenuRounded />
               </IconButton>
             )}
-<Link to="/">
-            <Logo variant={"h3"}>Rapido</Logo>
+            <Link to="/">
+              <Logo variant={"h3"}>Rapido</Logo>
             </Link>
             {isDesktop && (
               <Stack direction={"row"} spacing={2}>
                 {menuList.map((el, idx) => (
-                  <Button variant={"text"} >{el.title}</Button>
+                  <Button variant={"text"} href={el.href}>
+                    {el.title}
+                  </Button>
                 ))}
               </Stack>
             )}
           </Stack>
           <Stack direction="row" spacing={2}>
-            {isDesktop && <Button startIcon={<Person />} href="/Login">Login</Button>}
+            {isDesktop && (
+              <Button startIcon={<Person />} href="/login">
+                Login
+              </Button>
+            )}
 
-            <Button variant={"contained"} >Download App</Button>
+            <Button variant={"contained"}>Download App</Button>
           </Stack>
         </Stack>
       </Container>
@@ -84,25 +95,24 @@ const Header = () => {
           setOpenDrawer(false);
         }}
       >
-        <Box p={3} sx={{width:"300px"}}>
-        <Stack mb={3} direction={"row"} spacing={2} justifyContent={"end"}>
-        <IconButton
-          onClick={() => {
-            setOpenDrawer(false);
-          }}
-        >
-          <CancelRounded />
+        <Box p={3} sx={{ width: "300px" }}>
+          <Stack mb={3} direction={"row"} spacing={2} justifyContent={"end"}>
+            <IconButton
+              onClick={() => {
+                setOpenDrawer(false);
+              }}
+            >
+              <CancelRounded />
+            </IconButton>
+          </Stack>
 
-        </IconButton>
-        </Stack>
-
-        <Stack direction={"column"} spacing={2} alignItems={"start"}>
-          {menuList.map((el, idx) => (
-            <Button sx={{color:"#000"}} variant={"text"}>
-              {el.title}
-            </Button>
-          ))}
-        </Stack>
+          <Stack direction={"column"} spacing={2} alignItems={"start"}>
+            {menuList.map((el, idx) => (
+              <Button sx={{ color: "#000" }} variant={"text"} href={el.href}>
+                {el.title}
+              </Button>
+            ))}
+          </Stack>
         </Box>
       </SwipeableDrawer>
     </StyledBox>

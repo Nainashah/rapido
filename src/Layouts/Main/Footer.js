@@ -23,11 +23,11 @@ const footerList = [
     children: [
       {
         title: "Book cabs",
-        href: "#",
+        href: "/Book-cabs",
       },
       {
-        title: "City Tours",
-        href: "#",
+        title: "Tour Packages",
+        href: "Tour-package",
       },
       {
         title: "Rent a Rapido",
@@ -44,7 +44,7 @@ const footerList = [
       },
       {
         title: "Terms of use",
-        href: "#",
+        href: "/terms-condition",
       },
     ],
   },
@@ -53,7 +53,7 @@ const footerList = [
     children: [
       {
         title: "About Us",
-        href: "#",
+        href: "/about-us",
       },
       {
         title: "Team",
@@ -61,7 +61,7 @@ const footerList = [
       },
       {
         title: "Contact Us",
-        href: "#",
+        href: "/help-safety",
       },
     ],
   },
@@ -85,7 +85,7 @@ const socialList = [
     href: "#",
   },
 ];
-const link = [{}];
+
 const menuList = [
   {
     title: "Returns & Refund",
@@ -93,7 +93,7 @@ const menuList = [
   },
   {
     title: "Safety",
-    href: "#",
+    href: "/help-safety",
   },
   {
     title: "Privacy Policy",
@@ -111,10 +111,12 @@ const Footer = () => {
           {footerList.map((el, idx) => (
             <Grid item xs={12} md={3}>
               <Stack spacing={2}>
-                <Typography variant={"h6"}>{el.title}</Typography>
+                <Button variant={"text"} sx={{fontSize:20,fontWeight:"60%"}}>{el.title}</Button>
 
                 {el.children.map((elm, idx) => (
-                  <Typography>{elm.title}</Typography>
+                  <Button variant="text" href={elm.href}>
+                  {elm.title}
+                  </Button>
                 ))}
               </Stack>
             </Grid>
@@ -122,10 +124,10 @@ const Footer = () => {
 
           <Grid item xs={12} md={3}>
             <Stack spacing={2}>
-              <Typography variant={"h6"}>Contact Us</Typography>
-              <Typography variant={"body2"}>Dubai, karama</Typography>
-              <Typography variant={"body2"}>support@rapidogo.com</Typography>
-              <Typography variant={"body2"}>+971544374491</Typography>
+              <Button variant={"h6"}>Contact Us</Button>
+              <Button variant={"text"}>Dubai, karama</Button>
+              <Button variant={"text"} href="mailto:support@raoidogo.com" >support@rapidogo.com</Button>
+              <Button variant={"text"} href="tel:+9715443744"sx={{textAlign:"center"}}>+9715443744</Button>
               <Typography variant={"body2"}>
                 Copyright 2022. All Rights Reserved
               </Typography>
@@ -155,7 +157,7 @@ const Footer = () => {
           <Grid item sx={12} md={6}>
             <Stack direction={"row"} spacing={2} justifyContent={"end"}>
               {menuList.map((el, idx) => (
-                <Button variant={"text"}>{el.title}</Button>
+                <Button variant={"text"} href= {el.href}>{el.title}</Button>
               ))}
             </Stack>
           </Grid>

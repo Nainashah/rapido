@@ -21,6 +21,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import atlantisnPalm from "../../assets/images/atlantisthepalm.png";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { Link } from "react-router-dom";
 
 const BookTour = () => {
   return (
@@ -29,7 +30,7 @@ const BookTour = () => {
         <Grid container spacing={5} mt={0.2}>
           <Grid item xs={12} md={4}>
             <Stack spacing={3} marginY={3}>
-              <Stack alignItems={"center"}>
+              <Stack alignItems={"center"} padding={3}>
                 <Typography variant="h4" alignItems={"center"}>
                   Book Tour Package <span style={{ fontSize: 30 }}> </span>
                 </Typography>
@@ -37,9 +38,11 @@ const BookTour = () => {
 
               <Stack direction={"row"} justifyContent="space-between">
                 <Typography variant="h6">Marina Beach</Typography>
+                <Link to="/Tour-package">
                 <Typography variant="body" sx={{ color: "#0040bd" }}>
                   Change
                 </Typography>
+                </Link>
               </Stack>
               <TextField
                 placeholder="Pickup Point"

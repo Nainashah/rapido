@@ -14,6 +14,9 @@ import BookCabs from "./Pages/Main/BookCabs";
 import Tour from "./Pages/Main/Tour";
 import YourCars from "./Pages/Main/YourCars"
 import BookTourspack from "./Pages/Main/BookTourspack";
+import TermsUse from "./Pages/Main/TermsUse"
+import Queries from "./Pages/Main/Queries";
+import AboutUs from "./Pages/Main/AboutUs";
 
 function App() {
   const theme = useTheme();
@@ -22,13 +25,16 @@ function App() {
     <ThemeProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Login" element={<LoginPage />} />
-        <Route path="/Verify-otp" element={<VerifyPage />} />
-        <Route path="/Search-cabs" element={<SearchCabs />} />
-        <Route path="/Book-cabs" element={<BookCabs />} />
-        <Route path="/Tour-package" element={<Tour />} />
-        <Route path="/Your-car" element={<YourCars />} />
-        <Route path="/Book-your-tour" element={<BookTourspack/>} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/verify-otp" element={<VerifyPage />} />
+        <Route path="/search-cabs" element={<SearchCabs />} />
+        <Route path="/book-cabs" element={<BookCabs />} />
+        <Route path="/tour-package" element={<Tour />} />
+        <Route path="/your-car" element={<YourCars />} />
+        <Route path="/book-your-tour" element={<BookTourspack/>} />
+        <Route path="/terms-condition" element={<TermsUse/>} />
+        <Route path="/help-safety"    element={<Queries/>} />
+        <Route path="/about-us"  element={<AboutUs/>}/>
       </Routes>
     </ThemeProvider>
   );

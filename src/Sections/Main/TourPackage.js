@@ -25,6 +25,7 @@ import beach from "../../assets/images/beach.png"
 import alseef from "../../assets/images/alseef.png"
 import jabeljais1 from "../../assets/images/jabeljais1.png"
 import jabeljas from "../../assets/images/jabeljais.png"
+import { Link } from "react-router-dom";
 const TourList = [
   {
     Image: [
@@ -39,7 +40,7 @@ const TourList = [
     subtitle: "30min",
 
     number: 4.96,
-    price: 89,
+    price: 99,
   },
   {
     Image: [
@@ -72,7 +73,7 @@ const TourList = [
     subtitle: "45 min",
 
     number: 4.96,
-    price: 99 ,
+    price: 110 ,
   },
   {
     Image: [
@@ -87,7 +88,7 @@ const TourList = [
     subtitle: "40min",
 
     number: 4.9,
-    price: 99,
+    price: 130,
   },
   {
     Image: [
@@ -102,7 +103,7 @@ const TourList = [
     subtitle: "30min",
 
     number: 4.9,
-    price: 60,
+    price: 90,
   },
   {
     Image: [
@@ -120,7 +121,7 @@ const TourList = [
     subtitle: "30 min",
 
     number: 4.99,
-    price: 70,
+    price: 100,
   },
   {
     Image: [
@@ -135,7 +136,7 @@ const TourList = [
     subtitle: "3hr",
 
     number: 4.96,
-    price: 120,
+    price: 150,
   },
   {
     Image: [
@@ -150,7 +151,7 @@ const TourList = [
     subtitle: "1hr",
 
     number: 4.96,
-    price: 99,
+    price: 120,
   },
   {
     Image: [
@@ -168,7 +169,7 @@ const TourList = [
     subtitle: "One week",
 
     number: 4.99,
-    price: 799,
+    price: 749,
   },
 ];
 
@@ -188,6 +189,7 @@ const TourPackage = () => {
       <Grid container spacing={7} marginY={2}>
         {TourList.map((el, idx) => (
           <Grid item xs={12} sm={6} md={4}>
+            <Link to="/book-your-tour">
             <Card >
               <CardActionArea>
                 <Slider {...settings}>
@@ -203,6 +205,7 @@ const TourPackage = () => {
                 </Slider>
               </CardActionArea>
             </Card>
+            </Link>
             <Stack
               direction={"row"}
               justifyContent={"space-between"}

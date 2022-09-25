@@ -1,23 +1,8 @@
-import { GpsFixedRounded, LocationOnRounded } from "@mui/icons-material";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  IconButton,
-  InputAdornment,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
-import React from "react";
-import { Link } from "react-router-dom";
+import { Button, Container, Grid, Stack, TextField, Typography } from '@mui/material'
+import React from 'react'
 
-const CabSearch = () => {
-  const [lat, setLat] = React.useState(21.84364076030734);
+const Query = () => {
+    const [lat, setLat] = React.useState(21.84364076030734);
   const [long, setLong] = React.useState(82.75998700000001);
 
   setTimeout(() => {
@@ -148,122 +133,68 @@ const CabSearch = () => {
       // });
     }
   }, 1000);
-
   return (
-    <Box>
-      <Container>
-        <Grid container spacing={5} mt={0.2}>
-          <Grid item xs={12} md={4}>
-            <Stack spacing={3} marginY={4} >
-              <Stack alignItems={"center"}>
-                <Typography variant="h4" alignItems={"center"}>
-                  Find My Ride <span style={{ fontSize: 30 }}>🚘 </span>
+   <Container sx={{marginY:4}}>
+    <Grid container spacing={5}>
+        <Grid item xs={12} md={6}>
+            <Stack spacing={3}>
+                <Stack>
+                <Typography variant="title">
+                      Have some query?<span style={{ fontSize: 23}}>🚘 </span>
                 </Typography>
-              </Stack>
-              <Stack direction={"row"} justifyContent="space-between" py={4}>
-                <Typography variant="h6">
-                  Toyota Yaris
-                </Typography  >
-                <Link to="/Your-car">
-                <Typography sx={{ color: "#0040bd" }} variant="body2">
-                  Change Preference
+                <Typography variant="h5">
+                      Drop us a message!
                 </Typography>
-                </Link>
-              </Stack>
-              <TextField
-                placeholder="Pickup Point"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment>
-                      <IconButton>
-                        <GpsFixedRounded />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField
-                placeholder="Destination"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment>
-                      <IconButton>
-                        <LocationOnRounded />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField
-                placeholder="Date & Time"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment>
-                      <IconButton>
-                        <AccessTimeIcon />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <Button variant="contained">Search Ride</Button>
-
-              <Box
-                width={"100%"}
-                padding={2}
-                sx={{ boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)" }}
-              >
-                <Stack spacing={3}>
-                 
-                  <Typography variant="body2"   to="/Book-cabs">Available Rides</Typography>
-                 
-                  <Box
-                    width="100%"
-                    sx={{ border: "1px solid #F1F1F1", borderRadius: "10px" }}
-                  >
-                    <Stack
-                      direction={"row"}
-                      alignItems={"center"}
-                      justifyContent={"center"}
-                      spacing={3}
-                    >
-                      <Stack>
-                        <IconButton>
-                          <DirectionsCarFilledIcon />
-                        </IconButton>
-                        <Typography
-                          variant="overline"
-                          sx={{ textTransform: "capitalize",  textDecoration:"none !important"}}
-                        >
-                          {" "}
-                          10 min
-                        </Typography>
-                      </Stack>
-                      <Stack>
-                        <Typography variant="subtitle2">
-                          Toyota Corolla
-                        </Typography>
-                        <Typography variant="caption">
-                          Cab with extra legroom & boot space
-                        </Typography>
-                      </Stack>
-                      <IconButton href="/Book-cabs">
-                        <ArrowForwardIosIcon sx={{ fontSize: 15 }} />
-                      </IconButton>
-                    </Stack>
-                  </Box>
-                 
                 </Stack>
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <div id="mapbox" style={{width: "100%", height: "100%", minHeight: '400px', borderRadius: '10px'}} />
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
-  );
-};
+                <Stack spacing={3}>
+                    <TextField  placeholder='Full Name'/>
+                    <TextField  placeholder='Email'/>
+                    <TextField  placeholder='Phone Number'/>
+                    <TextField  placeholder='Your Message'/>
 
-export default CabSearch;
+                   
+                </Stack>
+                <Stack sx={{width:"100%"}} justifyContent="end" direction={"row"}>
+                <Button variant='contained' style={{ width:"25vh"}}> Send Message</Button>
+                </Stack>
+                
+            </Stack>
+        </Grid>
+        <Grid item xs={12} md={6}>
+
+            <Stack spacing={1} marginBottom={2}>
+               <Stack direction={"row"} justifyContent='space-between'>
+                <Typography variant={'body1'}>
+                    Registered office: 
+                </Typography>
+                <Typography variant={'body1'}>
+                    Karama, Dubai
+                </Typography>
+               </Stack>
+               <Stack direction={"row"} justifyContent='space-between'>
+                <Typography variant={'body2'}>
+                   Drop a call:
+                </Typography>
+                <Typography variant={'body2'}>
+                  +971544374491
+                </Typography>
+               </Stack>
+               <Stack direction={"row"} justifyContent='space-between'>
+                <Typography variant={'body2'}>
+                    Email us: 
+                </Typography>
+                <Typography variant={'body2'}>
+                    support@rapidogo.com
+                </Typography>
+               </Stack>
+            </Stack>
+        <div id="mapbox" style={{width: "100%", height: "80%", minHeight: '400px', borderRadius: '10px'}} />
+        </Grid>
+
+    </Grid>
+
+   </Container>
+  )
+}
+
+export default Query
