@@ -136,9 +136,10 @@ const Footer = () => {
           <Grid item xs={12} md={3}>
             <Stack spacing={2}>
               <Button
-                variant={"h6"}
+                variant={"h3"}
                 fullWidth={false}
-                sx={{ width: "max-content" }}
+                sx={{ width: "max-content",fontSize:22 }}
+                fontSize={45}
               >
                 Contact Us
               </Button>
