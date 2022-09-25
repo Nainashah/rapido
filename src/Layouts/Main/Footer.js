@@ -111,11 +111,22 @@ const Footer = () => {
           {footerList.map((el, idx) => (
             <Grid item xs={12} md={3}>
               <Stack spacing={2}>
-                <Button variant={"text"} sx={{fontSize:20,fontWeight:"60%"}}>{el.title}</Button>
+                <Button
+                  variant={"text"}
+                  sx={{ fontSize: 20, fontWeight: "60%", width: "max-content" }}
+                  fullWidth={false}
+                >
+                  {el.title}
+                </Button>
 
                 {el.children.map((elm, idx) => (
-                  <Button variant="text" href={elm.href}>
-                  {elm.title}
+                  <Button
+                    variant="text"
+                    href={elm.href}
+                    fullWidth={false}
+                    sx={{ width: "max-content" }}
+                  >
+                    {elm.title}
                   </Button>
                 ))}
               </Stack>
@@ -124,10 +135,36 @@ const Footer = () => {
 
           <Grid item xs={12} md={3}>
             <Stack spacing={2}>
-              <Button variant={"h6"}>Contact Us</Button>
-              <Button variant={"text"}>Dubai, karama</Button>
-              <Button variant={"text"} href="mailto:support@raoidogo.com" >support@rapidogo.com</Button>
-              <Button variant={"text"} href="tel:+9715443744"sx={{textAlign:"center"}}>+9715443744</Button>
+              <Button
+                variant={"h6"}
+                fullWidth={false}
+                sx={{ width: "max-content" }}
+              >
+                Contact Us
+              </Button>
+              <Button
+                variant={"text"}
+                fullWidth={false}
+                sx={{ width: "max-content" }}
+              >
+                Dubai, karama
+              </Button>
+              <Button
+                variant={"text"}
+                href="mailto:support@raoidogo.com"
+                fullWidth={false}
+                sx={{ width: "max-content" }}
+              >
+                support@rapidogo.com
+              </Button>
+              <Button
+                variant={"text"}
+                href="tel:+9715443744"
+                sx={{ textAlign: "center", width: "max-content" }}
+                fullWidth={false}
+              >
+                +9715443744
+              </Button>
               <Typography variant={"body2"}>
                 Copyright 2022. All Rights Reserved
               </Typography>
@@ -157,7 +194,14 @@ const Footer = () => {
           <Grid item sx={12} md={6}>
             <Stack direction={"row"} spacing={2} justifyContent={"end"}>
               {menuList.map((el, idx) => (
-                <Button variant={"text"} href= {el.href}>{el.title}</Button>
+                <Button
+                  variant={"text"}
+                  href={el.href}
+                  fullWidth={false}
+                  sx={{ width: "max-content" }}
+                >
+                  {el.title}
+                </Button>
               ))}
             </Stack>
           </Grid>

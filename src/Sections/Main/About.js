@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Container, height } from "@mui/system";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import React from "react";
 import ToyotaCar from "../../assets/images/ToyotaCar.png";
 import CelebrationIcon from "@mui/icons-material/Celebration";
@@ -458,7 +458,7 @@ const About = () => {
             </Stack>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Stack >
+            <Stack>
               <Typography variant="h4" textAlign={"center"}>
                 Any Questions
               </Typography>
@@ -467,15 +467,20 @@ const About = () => {
                 We have already curated some of the common asked questions for
                 you
               </Typography>
-
-              <Button
-                variant="contained"
-                sx={{ textTransform: "none", marginTop: 4 }}
-                startIcon={<LocalPhoneOutlinedIcon />}
-              >
-                {" "}
-                Schedule a call today
-              </Button>
+              <Stack alignItems={"center"}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    marginTop: 4,
+                    width: "max-content",
+                  }}
+                  startIcon={<LocalPhoneOutlinedIcon />}
+                >
+                  {" "}
+                  Schedule a call today
+                </Button>
+              </Stack>
             </Stack>
           </Grid>
         </Grid>
