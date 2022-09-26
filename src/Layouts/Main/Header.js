@@ -64,7 +64,7 @@ const Header = () => {
                 <MenuRounded />
               </IconButton>
             )}
-            <Link to="/">
+            <Link style={{textDecoration:"none"}} to="/">
               <Logo variant={"h3"}>Rapido</Logo>
             </Link>
             {isDesktop && (

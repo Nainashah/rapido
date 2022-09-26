@@ -41,7 +41,7 @@ const Login = () => {
               width={"100%"}
             >
               <Typography variant="body">Don't have an account?</Typography>{" "}
-              <Typography variant="body" component={Link} to="/Search-cabs">Book a Rapido</Typography>
+              <Typography variant="body" component={Link} to="/Search-cabs" style={{textDecoration:"none"}}>Book a Rapido</Typography>
             </Stack>
           </Stack>
         </Box>

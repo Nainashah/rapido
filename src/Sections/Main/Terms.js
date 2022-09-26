@@ -52,11 +52,87 @@ const TermsList = [
     ],
   },
 ];
+
+function Term(props) {
+  return (
+    <Card
+      sx={{
+        minWidth: 1150,
+        marginY: 4,
+      }}
+    >
+      <CardContent
+        sx={{
+          background: "#F5F5F5",
+        }}
+      >
+        <Stack
+          sx={{
+            marginY: 3,
+          }}
+        >
+          <Stack spacing={4}>
+            <Typography
+              variant="h6"
+              sx={{
+                marginBottom: 4,
+              }}
+            >
+              {" "}
+              {props.el.title}
+            </Typography>
+          </Stack>
+
+          <Stack direction={"row"} spacing={3}>
+            <Stack>
+              <Box
+                sx={{
+                  borderRadius: "50%",
+                  width: 50,
+                  height: 50,
+                  background: "#ffffff",
+                }}
+              >
+                <Stack
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                  sx={{
+                    height: 50,
+                  }}
+                >
+                  <Typography variant="h6">{props.idx + 1}</Typography>
+                </Stack>
+              </Box>
+            </Stack>
+            <Stack spacing={3}>
+              {props.el.subtitle.map((elm, id) => (
+                <Stack direction={"row"} spacing={3}>
+                  <Stack>
+                    <Typography variant="body2">
+                      {` ${props.idx + 1}.${id + 1}`}
+                    </Typography>
+                  </Stack>
+                  <Stack>
+                    {" "}
+                    <Typography variant="body2">{elm.text}</Typography>
+                  </Stack>
+                </Stack>
+              ))}
+            </Stack>
+          </Stack>
+        </Stack>
+      </CardContent>
+    </Card>
+  );
+}
+
 const Terms = () => {
   return (
     <Container>
       <Stack alignItems={"center"} marginY={4} padding={3}>
-        <Typography variant="h3" sx={{marginY:3}}>Terms of Use</Typography>
+        <Typography variant="h3" sx={{ marginY: 3 }}>
+          Terms of Use
+        </Typography>
         <Typography variant="body2">
           The Agreement: The use of this platform and services on this platform
           provided by ] Rapido Tours & Travel LLC (herein referred to as
@@ -77,56 +153,9 @@ const Terms = () => {
           Privacy Policy which sets forth how information collected about you is
           collected, used and stored.
         </Typography>
-        {TermsList.map((el, idx) => (
-          <Card sx={{ minWidth: 1150, marginY: 4 }}>
-            <CardContent sx={{ background: "#F5F5F5" }}>
-              <Stack sx={{ marginY: 3 }}>
-                <Stack spacing={4}>
-                  <Typography variant="h6" sx={{ marginBottom: 4 }}>
-                    {" "}
-                    {el.title}
-                  </Typography>
-                </Stack>
-
-                <Stack direction={"row"} spacing={3}>
-                  <Stack>
-                    <Box
-                      sx={{
-                        borderRadius: "50%",
-                        width: 50,
-                        height: 50,
-                        background: "#ffffff",
-                      }}
-                    >
-                      <Stack
-                        alignItems={"center"}
-                        justifyContent={"center"}
-                        sx={{ height: 50 }}
-                      >
-                        <Typography variant="h6">{idx + 1}</Typography>
-                      </Stack>
-                    </Box>
-                  </Stack>
-                  <Stack spacing={3}>
-                    {el.subtitle.map((elm, id) => (
-                      <Stack direction={"row"} spacing={3}>
-                        <Stack>
-                          <Typography variant="body2">
-                            {` ${idx + 1}.${id + 1}`}
-                          </Typography>
-                        </Stack>
-                        <Stack >
-                          {" "}
-                          <Typography variant="body2">{elm.text}</Typography>
-                        </Stack>
-                      </Stack>
-                    ))}
-                  </Stack>
-                </Stack>
-              </Stack>
-            </CardContent>
-          </Card>
-        ))}
+        {TermsList.map((el, idx) => {
+          return <Term el={el} idx={idx}></Term>;
+        })}
       </Stack>
     </Container>
   );

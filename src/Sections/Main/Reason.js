@@ -16,6 +16,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import Circle from "../../Components/Circle";
 
 const ReasonList = [
   {
@@ -43,6 +44,42 @@ const ReasonList = [
       "Now go cashless and travel easy. Simply recharge your Rapido money or add your credit/debit card to enjoy hassle free payments",
   },
 ];
+
+function Why(props) {
+  return (
+    <Grid item sm={12} md={6}>
+      <Card
+        sx={{
+          height: "100%",
+          width: "100%",
+          borderRadius: "8px",
+          padding: 8,
+          background: alpha("#8ea6ad", 0.1),
+        }}
+      >
+        {props.isMobile && (
+          <Stack
+            alignItems={"center"}
+            justifyContent={"center"}
+            marginBottom={2}
+          >
+            <Circle>{props.el.icon}</Circle>
+          </Stack>
+        )}
+
+        <Stack direction={"row"} spacing={3} justifyContent={"center"}>
+          {!props.isMobile && <Circle>{props.el.icon}</Circle>}
+
+          <Stack>
+            <Typography variant={"h6"}>{props.el.title}</Typography>{" "}
+            <Typography variant={"body2"}>{props.el.subtitle}</Typography>
+          </Stack>
+        </Stack>
+      </Card>
+    </Grid>
+  );
+}
+
 const Reason = () => {
   const isMobile = useResponsive("between", "sm", "xs", "sm");
   return (
@@ -53,55 +90,9 @@ const Reason = () => {
           Best way to reach your destination
         </Typography>
       </Stack>
-      <Grid container spacing={3} >
+      <Grid container spacing={3}>
         {ReasonList.map((el, idx) => (
-          <Grid item sm={12} md={6}>
-            <Card
-              sx={{
-                height: "100%",
-                width: "100%",
-                borderRadius: "8px",
-                padding: 8,
-                background: alpha("#8ea6ad", 0.1),
-              }}
-            >
-              {isMobile &&   <Stack alignItems={"center"} justifyContent={"center"} marginBottom={2}>
-              <Box
-                    sx={{
-                      borderRadius: "58px",
-                      height: "82px",
-                      padding: 2,
-                      
-                      backgroundColor: "#FFF",
-                    }}
-                  >
-                    {el.icon}
-                  </Box>
-              </Stack> }
-            
-              
-              <Stack direction={"row"} spacing={3} justifyContent={"center"}>
-                { !isMobile && (
-                  <Box
-                    sx={{
-                      borderRadius: "58px",
-                      height: "fit-content",
-                      padding: 2,
-                      width: "100px",
-                      backgroundColor: "#FFF",
-                    }}
-                  >
-                    {el.icon}
-                  </Box>
-                )}
-
-                <Stack>
-                  <Typography variant={"h6"}>{el.title}</Typography>{" "}
-                  <Typography variant={"body2"}>{el.subtitle}</Typography>
-                </Stack>
-              </Stack>
-            </Card>
-          </Grid>
+          <Why isMobile={isMobile} el={el}></Why>
         ))}
       </Grid>
     </Container>

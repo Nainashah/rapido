@@ -164,7 +164,7 @@ const CabSearch = () => {
                 <Typography variant="h6">
                   Toyota Yaris
                 </Typography  >
-                <Link to="/Your-car">
+                <Link to="/Your-car" style={{textDecoration:"none"}}>
                 <Typography sx={{ color: "#0040bd" }} variant="body2">
                   Change Preference
                 </Typography>

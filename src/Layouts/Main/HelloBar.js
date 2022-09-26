@@ -69,12 +69,12 @@ const HelloBar = () => {
           {!isMobile && (
             <Stack direction={"row"} spacing={3}>
               {contactList.map((el, idx) => (
-                <a href={el.href}>
+                <Link style={{textDecoration:"none"}} to={el.href}>
                   <Stack direction={"row"} alignItems={"center"} spacing={1}>
                     {el.icon}
                     <Typography variant={"caption"}>{el.content}</Typography>
                   </Stack>
-                </a>
+                </Link>
               ))}
             </Stack>
           )}

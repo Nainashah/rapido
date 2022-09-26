@@ -10,6 +10,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import Circle from "../../Components/Circle";
 import { Container, height } from "@mui/system";
 import AddIcon from "@mui/icons-material/Add";
 import React from "react";
@@ -60,7 +61,7 @@ const AccordionSummary = styled((props) => (
 
 const CardList = [
   {
-    icon: <CelebrationIcon />,
+    icon: <CelebrationIcon sx={{ fontSize: 50 }} />,
     title: "Trust",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
@@ -134,6 +135,156 @@ const TeamList = [
   },
 ];
 
+function Believe(props) {
+  return (
+    <Grid item xs={12} md={4}>
+      <Stack
+        direction={"row"}
+        spacing={5}
+        alignItems="center"
+        justifyContent={"center"}
+      >
+        <Card>
+          <CardContent
+            sx={{
+              background: "#F5F5F5",
+            }}
+          >
+            <Stack
+              sx={{
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              spacing={4}
+            >
+              <Circle>{props.el.icon}</Circle>{" "}
+              <Stack>
+                <Typography variant="h6" textAlign={"center"}>
+                  {props.el.title}
+                </Typography>
+                <Typography variant="body2" textAlign={"center"}>
+                  {props.el.subtitle}
+                </Typography>
+              </Stack>
+            </Stack>
+          </CardContent>
+        </Card>
+      </Stack>
+    </Grid>
+  );
+}
+
+function Starts(props) {
+  return (
+    <Grid item xs={12} md={4}>
+      <Stack
+        sx={{
+          alignItems: "center",
+          paddingX: 5,
+        }}
+        spacing={4}
+      >
+        <Circle>
+          <Stack
+            alignItems={"center"}
+            justifyContent={"center"}
+            sx={{
+              height: 40,
+            }}
+          >
+            <Typography variant="h6">{props.idx + 1}</Typography>
+          </Stack>
+        </Circle>
+
+        <Stack spacing={3}>
+          <Typography variant="h6" textAlign={"center"}>
+            {props.el.title}
+          </Typography>
+          <Typography variant="body2" textAlign={"center"}>
+            {props.el.subtitle}
+          </Typography>
+        </Stack>
+      </Stack>
+    </Grid>
+  );
+}
+
+function Mission(props) {
+  return (
+    <Grid item xs={12} md={4}>
+      <Stack
+        alignItems={"center"}
+        sx={{
+          paddingX: 4,
+        }}
+      >
+        {/* <Card sx={{ borderRadius: "10px", padding: 2 }}> */}
+
+        <Stack
+          sx={{
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={props.url}
+            style={{
+              maxHeight: "20vh",
+              maxWidth: "20vh",
+            }}
+            alt="Project-1"
+          />
+        </Stack>
+
+        <Typography variant="body2" textAlign={"center"}>
+          Lorem ipsum dolor sit amet, <r /> consectetur adipiscing elit. A.
+        </Typography>
+
+        {/* </Card> */}
+      </Stack>
+    </Grid>
+  );
+}
+
+function Team(props) {
+  return (
+    <Grid item xs={12} md={4}>
+      <Card
+        sx={{
+          borderRadius: "10px",
+          padding: 2,
+        }}
+      >
+        <CardContent>
+          <Stack direction={"row"} spacing={4}>
+            <img
+              src={props.el.url}
+              style={{
+                maxHeight: "10vh",
+                maxWidth: "10vh",
+              }}
+              alt="team"
+            />
+            <LinkedInIcon />
+            <TwitterIcon />
+          </Stack>
+          <Stack>
+            <Typography variant="h6">{props.el.title}</Typography>
+            <Typography variant="body2">{props.el.subtitle}</Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                marginTop: 4,
+              }}
+            >
+              {props.el.para}
+            </Typography>
+          </Stack>
+        </CardContent>
+      </Card>
+    </Grid>
+  );
+}
+
 const About = () => {
   const [expanded, setExpanded] = React.useState("panel1");
   const handleChange = (panel) => (event, newExpanded) => {
@@ -202,35 +353,9 @@ const About = () => {
           </Typography>
         </Stack>
         <Grid container marginTop={5} spacing={5}>
-          {CardList.map((el, idx) => (
-            <Grid item xs={12} md={4}>
-              <Stack
-                direction={"row"}
-                spacing={5}
-                alignItems="center"
-                justifyContent={"center"}
-              >
-                <Card>
-                  <CardContent sx={{ background: "#F5F5F5" }}>
-                    <Stack
-                      sx={{ alignItems: "center", justifyContent: "center" }}
-                      spacing={4}
-                    >
-                      <Stack>{el.icon}</Stack>
-                      <Stack>
-                        <Typography variant="h6" textAlign={"center"}>
-                          {el.title}
-                        </Typography>
-                        <Typography variant="body2" textAlign={"center"}>
-                          {el.subtitle}
-                        </Typography>
-                      </Stack>
-                    </Stack>
-                  </CardContent>
-                </Card>
-              </Stack>
-            </Grid>
-          ))}
+          {CardList.map((el, idx) => {
+            return <Believe el={el}></Believe>;
+          })}
         </Grid>
       </Container>
       <Box
@@ -241,37 +366,9 @@ const About = () => {
             <Typography variant="h4">How We Started?</Typography>
           </Stack>
           <Grid container marginTop={8}>
-            {StartList.map((el, idx) => (
-              <Grid item xs={12} md={4}>
-                <Stack sx={{ alignItems: "center", paddingX: 5 }} spacing={4}>
-                  <Box
-                    sx={{
-                      borderRadius: "50%",
-                      width: 40,
-                      height: 40,
-                      background: "#ffff",
-                    }}
-                  >
-                    <Stack
-                      alignItems={"center"}
-                      justifyContent={"center"}
-                      sx={{ height: 40 }}
-                    >
-                      <Typography variant="h6">{idx + 1}</Typography>
-                    </Stack>
-                  </Box>
-
-                  <Stack spacing={3}>
-                    <Typography variant="h6" textAlign={"center"}>
-                      {el.title}
-                    </Typography>
-                    <Typography variant="body2" textAlign={"center"}>
-                      {el.subtitle}
-                    </Typography>
-                  </Stack>
-                </Stack>
-              </Grid>
-            ))}
+            {StartList.map((el, idx) => {
+              return <Starts el={el} idx={idx}></Starts>;
+            })}
           </Grid>
         </Container>
       </Box>
@@ -287,31 +384,9 @@ const About = () => {
         </Stack>
 
         <Grid container spacing={4}>
-          {MissionList.map((el, idx) => (
-            <Grid item xs={12} md={4}>
-              <Stack alignItems={"center"} sx={{ paddingX: 4 }}>
-                {/* <Card sx={{ borderRadius: "10px", padding: 2 }}> */}
-
-                <Stack sx={{ alignItems: "center" }}>
-                  <img
-                    src={el.url}
-                    style={{
-                      maxHeight: "20vh",
-                      maxWidth: "20vh",
-                    }}
-                    alt="Project-1"
-                  />
-                </Stack>
-
-                <Typography variant="body2" textAlign={"center"}>
-                  Lorem ipsum dolor sit amet, <r /> consectetur adipiscing elit.
-                  A.
-                </Typography>
-
-                {/* </Card> */}
-              </Stack>
-            </Grid>
-          ))}
+          {MissionList.map((el, idx) => {
+            return <Mission url={el.url}></Mission>;
+          })}
         </Grid>
       </Container>
       <Box
@@ -362,33 +437,9 @@ const About = () => {
         </Stack>
 
         <Grid container spacing={4}>
-          {TeamList.map((el, idx) => (
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: "10px", padding: 2 }}>
-                <CardContent>
-                  <Stack direction={"row"} spacing={4}>
-                    <img
-                      src={el.url}
-                      style={{
-                        maxHeight: "10vh",
-                        maxWidth: "10vh",
-                      }}
-                      alt="team"
-                    />
-                    <LinkedInIcon />
-                    <TwitterIcon />
-                  </Stack>
-                  <Stack>
-                    <Typography variant="h6">{el.title}</Typography>
-                    <Typography variant="body2">{el.subtitle}</Typography>
-                    <Typography variant="body2" sx={{ marginTop: 4 }}>
-                      {el.para}
-                    </Typography>
-                  </Stack>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+          {TeamList.map((el, idx) => {
+            return <Team el={el}></Team>;
+          })}
         </Grid>
       </Container>
       <Container sx={{ marginY: 8 }}>

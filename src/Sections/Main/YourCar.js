@@ -123,6 +123,67 @@ const CarList = [
   },
 ];
 
+function YourCars(props) {
+  return (
+    <Grid item xs={12} md={6}>
+      <Card
+        sx={{
+          padding: 2,
+          height: props.height,
+        }}
+      >
+        <Grid
+          container
+          spacing={3}
+          sx={{
+            height: props.Gridheight,
+          }}
+        >
+          {/* <Stack spacing={4} */}
+          <Grid item md={8} xs={12}>
+            <CardMedia
+              sx={{
+                height: "100%",
+                objectFit: "contain",
+                background:"#D9D9D9",
+                borderRadius:"16px",
+              }}
+              component="img"
+              image={props.el.image[0].url}
+              alt="car"
+            />
+          </Grid>
+          <Grid item md={4} xs={12} height="100%">
+            <Stack justifyContent={"space-between"} height="100%">
+              <Stack spacing={2}>
+                <Typography variant="h6">{props.el.title}</Typography>
+                {props.el.features.map((elm, idx) => (
+                  <Stack spacing={2} direction={"row"}>
+                    {elm.icon}
+                    <Typography>{elm.content}</Typography>
+                  </Stack>
+                ))}
+              </Stack>
+              <Stack spacing={2}>
+                <Stack spacing={2} direction={"row"}>
+                  <LocalOfferRounded />
+                  <Typography>{props.el.price}</Typography>
+                </Stack>
+                <Link to="/Search-cabs" style={{textDecoration:"none"}}>
+                  <Button variant="contained" fullWidth>
+                    Book Now
+                  </Button>
+                </Link>
+              </Stack>
+            </Stack>
+          </Grid>
+          {/* </Stack> */}
+        </Grid>
+      </Card>
+    </Grid>
+  );
+}
+
 const YourCar = () => {
   const isMobile = useResponsive("between", "sm", "xs", "sm");
   const isTablet = useResponsive("between", "sm", "sm", "md");
@@ -134,47 +195,15 @@ const YourCar = () => {
     <Container sx={{ marginY: 5 }}>
       <Typography variant="h3">Your Cars</Typography>
       <Grid container spacing={4} marginY={2}>
-        {CarList.map((el, idx) => (
-          <Grid item xs={12} md={6}>
-            <Card sx={{ padding: 2, height: height }}>
-              <Grid container spacing={3} sx={{ height: Gridheight }}>
-                {/* <Stack spacing={4} */}
-                <Grid item md={8} xs={12}>
-                  <CardMedia
-                    sx={{ height: "100%", objectFit: "contain" }}
-                    component="img"
-                    image={el.image[0].url}
-                    alt="car"
-                  />
-                </Grid>
-                <Grid item md={4} xs={12} height="100%">
-                  <Stack justifyContent={"space-between"} height="100%">
-                    <Stack spacing={2}>
-                      <Typography variant="h6">{el.title}</Typography>
-                      {el.features.map((elm, idx) => (
-                        <Stack spacing={2} direction={"row"}>
-                          {elm.icon}
-                          <Typography>{elm.content}</Typography>
-                        </Stack>
-                      ))}
-                    </Stack>
-                    <Stack spacing={2}>
-                      <Stack spacing={2} direction={"row"}>
-                        <LocalOfferRounded />
-                        <Typography>{el.price}</Typography>
-                      </Stack>
-                      <Link to="/Search-cabs">
-                      <Button variant="contained" fullWidth >Book Now</Button>
-                      </Link>
-                     
-                    </Stack>
-                  </Stack>
-                </Grid>
-                {/* </Stack> */}
-              </Grid>
-            </Card>
-          </Grid>
-        ))}
+        {CarList.map((el, idx) => {
+          return (
+            <YourCars
+              height={height}
+              Gridheight={Gridheight}
+              el={el}
+            ></YourCars>
+          );
+        })}
       </Grid>
     </Container>
   );
