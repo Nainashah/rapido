@@ -31,13 +31,13 @@ const contactList = [
   {
     icon: <Phone sx={{ fontSize: 20 }} />,
     content: "+971506831025",
-    href: "tel:+971506831025",
+    href: "//tel:+971506831025",
   },
 
   {
     icon: <MailOutline sx={{ fontSize: 20 }} />,
     content: "support@rapidogo.com",
-    href: "mailto:support@rapidogo.com",
+    href: "//mailto:support@rapidogo.com",
   },
 ];
 

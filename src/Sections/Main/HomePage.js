@@ -266,17 +266,19 @@ const HomePage = () => {
                 </LocalizationProvider>
               </Grid>
               <Grid item xs={12} md={3}>
-                <Link  to="/Search-cabs">
+               
                   {" "}
                   <Button
                     sx={{ borderRadius: 10 }}
                     py={3}
                     fullWidth
                     variant="contained"
+                    href=" /Search-cabs"
+                    style={{textDecoration:"none"}}
                   >
                     Search Rides
                   </Button>
-                </Link>
+                
               </Grid>
             </Grid>
           </Box>
