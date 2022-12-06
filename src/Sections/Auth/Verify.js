@@ -5,14 +5,16 @@ import {
   Stack,
   TextField,
   Typography,
+  Alert,
 } from "@mui/material";
 import React from "react";
 import CreateIcon from "@mui/icons-material/Create";
 import OtpInput from "react-otp-input";
 import { useState } from "react";
-import { width } from "@mui/system";
+
 const Verify = () => {
   const [otp, setOtp] = useState("");
+  const [error,setError] = useState("");
   const handleChange = (otp) => setOtp(otp);
   return (
     <Stack sx={{ justifyContent: "center", alignItems: "center" }}>
@@ -43,24 +45,48 @@ const Verify = () => {
                 <CreateIcon />
               </IconButton>
             </Stack>
-            <Stack sx={{width:"100%" , alignItems:"center", justifyContent:"center"}}>
+            { error && (
+              <Alert severity="error">
+                This is an error alert — check it out!
+              </Alert>
+            )}
+
+            <Stack
+              sx={{
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               {" "}
               <OtpInput
                 value={otp}
                 onChange={handleChange}
+                shouldAutoFocus
                 numInputs={4}
                 separator={<span>{"  "}</span>}
                 inputStyle={{
                   margin: 20,
                   width: 48,
                   height: 48,
-                  borderRadius:10
+                  borderRadius: 10,
                 }}
               />
             </Stack>
           </Stack>
 
-          <Button variant="contained" fullWidth>
+          <Button variant="contained" fullWidth onClick={()=>{  if(otp.length !== 4)
+          {
+            setError('Please Enter your OTP')
+          }
+          else {
+            setError("");
+          }
+
+
+          }
+         
+          }>
             Verify
           </Button>
 

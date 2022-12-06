@@ -105,7 +105,7 @@ const Footer = () => {
   const isMobile = useResponsive("between", "sm", "xs", "sm");
   const isTablet = useResponsive("between", "sm", "sm", "md");
   return (
-    <Box py={10} sx={{ background: "#1B2C52", marginTop: 8, color: "#eeee" }}>
+    <Box py={10} sx={{ background: "#1B2C52", marginTop: 8, color: "#eeee" }} >
       <Container>
         <Grid container direction="row" spacing={4}>
           {footerList.map((el, idx) => (
